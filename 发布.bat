@@ -42,16 +42,19 @@ echo [1/4] Staging changes...
 "%GIT%" add -A
 echo.
 
-set "MSG="
-set /p MSG="[2/4] Commit message (press Enter for default): "
-if "!MSG!"=="" set "MSG=docs: update articles"
+rem --- detect whether there is anything to commit BEFORE asking ---
+set "HADCHANGES="
+for /f %%i in ('"%GIT%" status --porcelain 2^>nul') do set "HADCHANGES=1"
 
-"%GIT%" commit -m "!MSG!"
-if errorlevel 1 (
+if defined HADCHANGES (
+  set "MSG="
+  set /p MSG="[2/4] Commit message (press Enter for default): "
+  if "!MSG!"=="" set "MSG=docs: update articles"
+  "%GIT%" commit -m "!MSG!"
+) else (
+  echo [2/4] No new file changes - skipping commit.
+  echo       Still checking for commits that need pushing...
   echo.
-  echo [SKIP] Nothing to commit, or commit cancelled.
-  pause
-  exit /b 0
 )
 echo.
 
@@ -95,8 +98,15 @@ echo ============================================
 echo    SUCCESS
 echo ============================================
 echo.
+echo Repository:  https://github.com/phxjchina/baibashi-jishu
+echo.
 echo Site will be live in about 2 minutes:
 echo   https://phxjchina.github.io/baibashi-jishu/
+echo.
+echo If the site shows 404, turn Pages on:
+echo   https://github.com/phxjchina/baibashi-jishu/settings/pages
+echo   Source = Deploy from a branch
+echo   Branch = main, folder = / (root)
 echo.
 echo Next:
 echo   1. Open the repo and confirm your article appears
