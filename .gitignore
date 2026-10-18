@@ -1,0 +1,42 @@
+# ===== 敏感文件与本地产物排除 =====
+# 私有书稿绝不入公开仓库
+private-vault/
+**/private-vault/
+书稿-全文/
+草稿/
+draft/
+
+# 本地环境
+.env
+.env.local
+node_modules/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Office 临时锁文件
+~$*
+~$*
+
+# 大文件与二进制草稿
+*.mp4
+*.mov
+*.psd
+*.ai
+
+# 敏感数据格式（防止误传）
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+credentials*
+secret*
+*token*.txt
+!.github/workflows/*.yml
+
+# 但保留这些必须的元数据
+!LICENSE
+!README.md
+!CONTRIBUTING.md
