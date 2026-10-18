@@ -55,7 +55,7 @@ echo [3/4] 推送到 GitHub...
 echo      提示: Username 填 phxjchina
 echo            Password 粘贴你的 Personal Access Token
 echo.
-"%GP%\cmd\git.exe" push
+"%GP%\cmd\git.exe" push -u origin main
 if errorlevel 1 (
   echo.
   echo ============================================
