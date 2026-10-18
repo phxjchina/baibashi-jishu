@@ -60,9 +60,9 @@ echo.
 
 echo [3/4] Pushing to GitHub...
 echo.
-echo   >>> Username:  phxjchina
-echo   >>> Password: PASTE YOUR TOKEN HERE
-echo       (screen shows nothing while pasting - this is normal)
+echo   Username:  phxjchina
+echo   Password:  PASTE YOUR TOKEN HERE
+echo   Note: nothing appears on screen while pasting - this is normal
 echo.
 "%GIT%" push -u origin main
 if errorlevel 1 (
@@ -105,8 +105,9 @@ echo   https://phxjchina.github.io/baibashi-jishu/
 echo.
 echo If the site shows 404, turn Pages on:
 echo   https://github.com/phxjchina/baibashi-jishu/settings/pages
-echo   Source = Deploy from a branch
-echo   Branch = main, folder = / (root)
+echo   Source  = Deploy from a branch
+echo   Branch  = main
+echo   Folder  = / root
 echo.
 echo Next:
 echo   1. Open the repo and confirm your article appears
